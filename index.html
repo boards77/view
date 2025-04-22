@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上海一日游 - 构成主义风格旅行指南</title>
+    <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+    <style>
+        :root {
+            --color-red: #e41e1e;
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-gray: #e0e0e0;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        
+        .constructivist-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        
+        .diagonal-line {
+            position: absolute;
+            height: 2px;
+            background-color: var(--color-red);
+            transform: rotate(-45deg);
+            transform-origin: left center;
+            z-index: 1;
+        }
+        
+        .geometric-shape {
+            position: absolute;
+            background-color: var(--color-red);
+            z-index: -1;
+        }
+        
+        .circle {
+            border-radius: 50%;
+        }
+        
+        .triangle {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        
+        .title-block {
+            transform: skew(-15deg);
+            background-color: var(--color-red);
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .title-block h1 {
+            transform: skew(15deg);
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 2.5rem;
+        }
+        
+        .angled-container {
+            transform: skew(-5deg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .angled-content {
+            transform: skew(5deg);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--color-red);
+            transform: rotate(45deg);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 12px;
+            width: 2px;
+            height: calc(100% - 12px);
+            background-color: var(--color-red);
+        }
+        
+        .info-box {
+            border: 2px solid var(--color-red);
+            padding: var(--spacing-md);
+            margin: var(--spacing-sm) 0;
+            position: relative;
+        }
+        
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-black);
+            border-top: 2px solid var(--color-red);
+            border-left: 2px solid var(--color-red);
+            transform: rotate(45deg);
+        }
+        
+        .section-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: var(--spacing-md) 0;
+            transform: skew(-10deg);
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            background-color: var(--color-red);
+        }
+        
+        .table-constructivist {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 4px;
+        }
+        
+        .table-constructivist th {
+            background-color: var(--color-red);
+            color: var(--color-white);
+            padding: var(--spacing-sm);
+            text-align: left;
+            font-weight: 700;
+            transform: skew(-5deg);
+        }
+        
+        .table-constructivist td {
+            background-color: var(--color-black);
+            border: 1px solid var(--color-red);
+            padding: var(--spacing-sm);
+            color: var(--color-white);
+        }
+        
+        .transport-arrow {
+            display: flex;
+            align-items: center;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .transport-arrow .line {
+            flex-grow: 1;
+            height: 2px;
+            background-color: var(--color-red);
+            position: relative;
+        }
+        
+        .transport-arrow .line::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--color-red);
+            transform: rotate(45deg);
+        }
+        
+        .note-box {
+            border-left: 4px solid var(--color-red);
+            padding-left: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .weather-icon {
+            font-size: 2rem;
+            color: var(--color-red);
+            margin-right: var(--spacing-sm);
+        }
+        
+        .highlight-text {
+            color: var(--color-red);
+            font-weight: 700;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-red);
+            color: var(--color-white);
+            font-weight: 700;
+            padding: var(--spacing-md);
+            border: none;
+            transform: skew(-5deg);
+            cursor: pointer;
+            margin-top: var(--spacing-md);
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .nav-button-content {
+            transform: skew(5deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-button i {
+            margin-right: 8px;
+        }
+        
+        @media (min-width: 768px) {
+            .constructivist-container {
+                max-width: 480px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="constructivist-container p-4">
+        <!-- 构成主义装饰元素 -->
+        <div class="diagonal-line" style="width: 200px; top: 150px; left: -20px;"></div>
+        <div class="diagonal-line" style="width: 150px; top: 300px; right: -20px;"></div>
+        <div class="geometric-shape circle" style="width: 80px; height: 80px; top: 200px; right: -40px; opacity: 0.3;"></div>
+        <div class="geometric-shape triangle" style="width: 100px; height: 100px; top: 500px; left: -50px; opacity: 0.2;"></div>
+        
+        <!-- 行程标题区 -->
+        <div class="title-block">
+            <h1 class="text-white text-center">上海一日游</h1>
+        </div>
+        
+        <div class="flex justify-between items-center mt-4">
+            <div>
+                <p class="text-white text-lg">2025年4月25日 <span class="text-gray-300">星期五</span></p>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-cloud weather-icon"></i>
+                <div>
+                    <p class="text-white">阴转多云</p>
+                    <p class="text-gray-300">12°C - 20°C</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 行程概览区 -->
+        <div class="angled-container">
+            <div class="section-title">行程概览</div>
+            <div class="angled-content">
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="info-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-monument mr-2 text-red-600"></i>
+                            <span class="highlight-text">外滩</span>
+                        </div>
+                        <p class="text-gray-300 text-sm">09:00-10:30</p>
+                        <a href="#" class="text-red-600 text-sm mt-2 inline-block" onclick="navigateTo('外滩', 121.493167, 31.245385)">
+                            <i class="fas fa-map-marker-alt mr-1"></i>导航到这里
+                        </a>
+                    </div>
+                    <div class="info-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-archway mr-2 text-red-600"></i>
+                            <span class="highlight-text">豫园</span>
+                        </div>
+                        <p class="text-gray-300 text-sm">11:00-13:00</p>
+                        <a href="#" class="text-red-600 text-sm mt-2 inline-block" onclick="navigateTo('豫园', 121.492497, 31.227714)">
+                            <i class="fas fa-map-marker-alt mr-1"></i>导航到这里
+                        </a>
+                    </div>
+                    <div class="info-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-broadcast-tower mr-2 text-red-600"></i>
+                            <span class="highlight-text">东方明珠塔</span>
+                        </div>
+                        <p class="text-gray-300 text-sm">13:30-15:30</p>
+                        <a href="#" class="text-red-600 text-sm mt-2 inline-block" onclick="navigateTo('东方明珠塔', 121.499718, 31.239703)">
+                            <i class="fas fa-map-marker-alt mr-1"></i>导航到这里
+                        </a>
+                    </div>
+                    <div class="info-box">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-flask mr-2 text-red-600"></i>
+                            <span class="highlight-text">科技馆</span>
+                        </div>
+                        <p class="text-gray-300 text-sm">16:00-18:00</p>
+                        <a href="#" class="text-red-600 text-sm mt-2 inline-block" onclick="navigateTo('上海科技馆', 121.544439, 31.218820)">
+                            <i class="fas fa-map-marker-alt mr-1"></i>导航到这里
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 详细时间表区 -->
+        <div class="mt-8">
+            <div class="section-title">详细行程</div>
+            <table class="table-constructivist">
+                <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>地点</th>
+                        <th>活动</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:00-10:30</td>
+                        <td>外滩</td>
+                        <td>欣赏黄浦江风光和陆家嘴天际线</td>
+                    </tr>
+                    <tr>
+                        <td>11:00-13:00</td>
+                        <td>豫园</td>
+                        <td>游览明清古典园林，享用本地特色午餐</td>
+                    </tr>
+                    <tr>
+                        <td>13:30-15:30</td>
+                        <td>东方明珠塔</td>
+                        <td>登塔观景，参观历史发展陈列馆</td>
+                    </tr>
+                    <tr>
+                        <td>16:00-18:00</td>
+                        <td>上海科技馆</td>
+                        <td>参观各种科普展览和互动体验</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 交通信息区 -->
+        <div class="mt-8">
+            <div class="section-title">交通路线</div>
+            
+            <div class="timeline-item">
+                <div class="font-bold">外滩 → 豫园</div>
+                <div class="transport-arrow">
+                    <div class="line"></div>
+                </div>
+                <p>驱车约2.6公里，行程约14分钟</p>
+                <a href="#" class="text-red-600 text-sm mt-2 inline-block" onclick="navigateRoute(121.493167, 31.245385, 121.492497, 31.227714)">
+                    <i class="fas fa-route mr-1"></i>路线导航
+                </a>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="font-bold">豫园 → 东方明珠塔</div>
+                <div class="transport-arrow">
+                    <div class="line"></div>
+                </div>
+                <p>驱车约5.4公里，行程约20分钟</p>
+                <a href="#" class="text-red-600 text-sm mt-2 inline-block" onclick="navigateRoute(121.492497, 31.227714, 121.499718, 31.239703)">
+                    <i class="fas fa-route mr-1"></i>路线导航
+                </a>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="font-bold">东方明珠塔 → 上海科技馆</div>
+                <div class="transport-arrow">
+                    <div class="line"></div>
+                </div>
+                <p>驱车约6.2公里，行程约21分钟</p>
+                <a href="#" class="text-red-600 text-sm mt-2 inline-block" onclick="navigateRoute(121.499718, 31.239703, 121.544439, 31.218820)">
+                    <i class="fas fa-route mr-1"></i>路线导航
+                </a>
+            </div>
+        </div>
+        
+        <!-- 住宿与餐饮区 -->
+        <div class="mt-8">
+            <div class="section-title">餐饮推荐</div>
+            <div class="info-box">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-utensils mr-2 text-red-600"></i>
+                    <span class="highlight-text">豫园周边</span>
+                </div>
+                <p class="mb-2">南翔小笼包、绿波廊、松鹤楼</p>
+                <p class="text-gray-300 text-sm">价格区间：¥50-¥150/人</p>
+            </div>
+            
+            <div class="info-box">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-utensils mr-2 text-red-600"></i>
+                    <span class="highlight-text">东方明珠</span>
+                </div>
+                <p class="mb-2">旋转餐厅</p>
+                <p class="text-gray-300 text-sm">价格区间：¥200-¥400/人</p>
+            </div>
+        </div>
+        
+        <!-- 实用信息区 -->
+        <div class="mt-8">
+            <div class="section-title">实用提示</div>
+            <div class="note-box">
+                <p><i class="fas fa-exclamation-triangle mr-2 text-red-600"></i> 携带外套，当天气温12-20℃</p>
+            </div>
+            <div class="note-box">
+                <p><i class="fas fa-shoe-prints mr-2 text-red-600"></i> 准备舒适的鞋子，行程包含较多步行</p>
+            </div>
+            <div class="note-box">
+                <p><i class="fas fa-ticket-alt mr-2 text-red-600"></i> 提前预约东方明珠门票可避免排队</p>
+            </div>
+            <div class="note-box">
+                <p><i class="fas fa-info-circle mr-2 text-red-600"></i> 科技馆当前显示"装修中"，出发前确认开放状态</p>
+            </div>
+        </div>
+        
+        <!-- 整体行程导航按钮 -->
+        <div class="mt-8">
+            <div class="section-title">整体行程导航</div>
+            <button class="nav-button" onclick="navigateFullTrip()">
+                <div class="nav-button-content">
+                    <i class="fas fa-map-marked-alt"></i>
+                    导航完整行程
+                </div>
+            </button>
+        </div>
+        
+        <!-- 重要电话 -->
+        <div class="mt-8 mb-12">
+            <div class="section-title">紧急联系</div>
+            <div class="grid grid-cols-2 gap-2">
+                <div class="info-box">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-red-600"></i>
+                        <span>旅游咨询</span>
+                    </div>
+                    <p class="text-white font-bold">021-12301</p>
+                </div>
+                <div class="info-box">
+                    <div class="flex items-center">
+                        <i class="fas fa-ambulance mr-2 text-red-600"></i>
+                        <span>急救电话</span>
+                    </div>
+                    <p class="text-white font-bold">120</p>
+                </div>
+                <div class="info-box">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt mr-2 text-red-600"></i>
+                        <span>报警电话</span>
+                    </div>
+                    <p class="text-white font-bold">110</p>
+                </div>
+                <div class="info-box">
+                    <div class="flex items-center">
+                        <i class="fas fa-fire-extinguisher mr-2 text-red-600"></i>
+                        <span>消防电话</span>
+                    </div>
+                    <p class="text-white font-bold">119</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 检测设备类型
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        // 导航到单个地点
+        function navigateTo(name, longitude, latitude) {
+            if (isIOS()) {
+                // iOS 使用苹果地图
+                window.location.href = `iosamap://poi?sourceApplication=上海一日游&name=${encodeURIComponent(name)}&lon=${longitude}&lat=${latitude}&dev=0`;
+                
+                // 延迟后检查是否跳转成功，若未成功则尝试打开高德地图
+                setTimeout(function() {
+                    window.location.href = `https://uri.amap.com/marker?position=${longitude},${latitude}&name=${encodeURIComponent(name)}&appname=上海一日游&callnative=0`;
+                }, 2000);
+            } else {
+                // Android 使用安卓高德地图
+                window.location.href = `androidamap://poi?sourceApplication=上海一日游&name=${encodeURIComponent(name)}&lon=${longitude}&lat=${latitude}&dev=0`;
+                
+                // 延迟后检查是否跳转成功，若未成功则尝试打开网页版高德
+                setTimeout(function() {
+                    window.location.href = `https://uri.amap.com/marker?position=${longitude},${latitude}&name=${encodeURIComponent(name)}&appname=上海一日游&callnative=0`;
+                }, 2000);
+            }
+        }
+
+        // 两点间路线导航
+        function navigateRoute(startLon, startLat, endLon, endLat) {
+            if (isIOS()) {
+                // iOS 使用苹果高德
+                window.location.href = `iosamap://route?sourceApplication=上海一日游&slat=${startLat}&slon=${startLon}&dlat=${endLat}&dlon=${endLon}&dev=0&t=0`;
+                
+                // 延迟后检查是否跳转成功
+                setTimeout(function() {
+                    window.location.href = `https://uri.amap.com/navigation?from=${startLon},${startLat}&to=${endLon},${endLat}&mode=car&policy=1&src=上海一日游&callnative=0`;
+                }, 2000);
+            } else {
+                // Android 使用安卓高德
+                window.location.href = `androidamap://route?sourceApplication=上海一日游&slat=${startLat}&slon=${startLon}&dlat=${endLat}&dlon=${endLon}&dev=0&t=0`;
+                
+                // 延迟后检查是否跳转成功
+                setTimeout(function() {
+                    window.location.href = `https://uri.amap.com/navigation?from=${startLon},${startLat}&to=${endLon},${endLat}&mode=car&policy=1&src=上海一日游&callnative=0`;
+                }, 2000);
+            }
+        }
+
+        // 整体行程导航
+        function navigateFullTrip() {
+            // 定义行程中的所有地点
+            const waypoints = [
+                {name: "外滩", lon: 121.493167, lat: 31.245385},
+                {name: "豫园", lon: 121.492497, lat: 31.227714},
+                {name: "东方明珠塔", lon: 121.499718, lat: 31.239703},
+                {name: "上海科技馆", lon: 121.544439, lat: 31.218820}
+            ];
+            
+            // 构建途经点
+            let waypoint = "";
+            for (let i = 1; i < waypoints.length - 1; i++) {
+                waypoint += `${waypoints[i].lon},${waypoints[i].lat};`;
+            }
+            
+            // 移除最后一个分号
+            if (waypoint.endsWith(";")) {
+                waypoint = waypoint.slice(0, -1);
+            }
+            
+            const start = `${waypoints[0].lon},${waypoints[0].lat}`;
+            const end = `${waypoints[waypoints.length-1].lon},${waypoints[waypoints.length-1].lat}`;
+            
+            if (isIOS()) {
+                // iOS使用苹果高德
+                let iosUrl = `iosamap://path?sourceApplication=上海一日游&dlat=${waypoints[waypoints.length-1].lat}&dlon=${waypoints[waypoints.length-1].lon}&dname=${encodeURIComponent(waypoints[waypoints.length-1].name)}&dev=0`;
+                
+                // 添加途经点
+                for (let i = 1; i < waypoints.length - 1; i++) {
+                    iosUrl += `&waypoint=${waypoints[i].lat},${waypoints[i].lon}`;
+                }
+                
+                window.location.href = iosUrl;
+                
+                // 延迟后检查是否跳转成功
+                setTimeout(function() {
+                    window.location.href = `https://uri.amap.com/navigation?from=${start}&to=${end}&waypoints=${waypoint}&mode=car&policy=1&src=上海一日游&callnative=0`;
+                }, 2000);
+            } else {
+                // Android使用安卓高德
+                let androidUrl = `androidamap://path?sourceApplication=上海一日游&dlat=${waypoints[waypoints.length-1].lat}&dlon=${waypoints[waypoints.length-1].lon}&dname=${encodeURIComponent(waypoints[waypoints.length-1].name)}&dev=0`;
+                
+                // 添加途经点
+                for (let i = 1; i < waypoints.length - 1; i++) {
+                    androidUrl += `&waypoint=${waypoints[i].lat},${waypoints[i].lon}`;
+                }
+                
+                window.location.href = androidUrl;
+                
+                // 延迟后检查是否跳转成功
+                setTimeout(function() {
+                    window.location.href = `https://uri.amap.com/navigation?from=${start}&to=${end}&waypoints=${waypoint}&mode=car&policy=1&src=上海一日游&callnative=0`;
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
